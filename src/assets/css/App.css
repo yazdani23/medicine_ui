@@ -47,16 +47,16 @@ aside{
 }
 .bg-form{
     background: linear-gradient(rgba(209, 209, 209, 0.2), rgba(194, 194, 194, 0.2)),
-     url("../images/6.jpg")  center;
+     url("../images/6.jpg") center;
     background-size: cover;
     min-height: 495px;
     box-shadow: 7px 13px 20px #cbced1, -13px -13px 20px #fff;
 }
 .bg-form-signup{
     background: linear-gradient(rgba(170,170,170,0.2), rgba(150,150,150,0.2)),
-     url("../images/7.jpg");
+     url("../images/7.jpg") center;
     background-size: cover;
-    min-height: 595px;
+    min-height: 520px;
 }
 
 .name-website{
