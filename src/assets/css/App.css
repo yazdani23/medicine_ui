@@ -140,3 +140,10 @@ aside{
     font-size: 11pt;
     color: #717171;
 }
+
+.left-box{
+    width: 20%;
+}
+.right-box{
+    width: 80%;
+}
