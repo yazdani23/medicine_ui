@@ -1,6 +1,6 @@
 /* Importing fonts from Google */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
-
+@import url("colors.css");
 
 * {
     margin: 0;
@@ -11,10 +11,18 @@
 
 body {
     min-height: 100vh;
-    background: #ecf0f3;
+    background: var(--bg-light-1);
 }
 aside{
-    min-height: 100vh;
+    min-height: 95vh;
+    background: var(--primary);
+}
+header{
+    background: var(--secondary);
+    width: 90%;
+}
+.nav-link{
+    color: white !important;
 }
 .auth-row {
     min-height: 100vh;
@@ -26,7 +34,7 @@ aside{
     padding: 40px 30px 30px 30px;
     background-color: #ecf0f3;
     border-radius: 15px;
-    box-shadow: 7px 13px 20px #cbced1, -13px -13px 20px #fff;
+    box-shadow: 7px 13px 20px #02020215, -13px -13px 20px #02020215;
 }
 
 .logo {
@@ -50,7 +58,7 @@ aside{
      url("../images/6.jpg") center;
     background-size: cover;
     min-height: 495px;
-    box-shadow: 7px 13px 20px #cbced1, -13px -13px 20px #fff;
+    box-shadow: 7px 13px 20px #02020215, -13px -13px 20px #02020215;
 }
 .bg-form-signup{
     background: linear-gradient(rgba(170,170,170,0.2), rgba(150,150,150,0.2)),
@@ -146,4 +154,8 @@ aside{
 }
 .right-box{
     width: 80%;
+}
+.chat-box{
+    width: 90%;
+
 }

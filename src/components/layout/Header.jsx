@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { showSuccessMessage } from "../../utils/toaster";
 
-const Header = () =>{
+const Header = () => {
   let navigate = useNavigate();
   const [isLogin, setIsLogin] = useState(false);
   const [fullName, setFullName] = useState("");
@@ -27,9 +27,9 @@ const Header = () =>{
   };
 
   return (
-    <header className="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow w-100">
-      <h4 className="my-4">
-        <span className="text-white px-5">Chat</span>
+    <header className="navbar navbar-dark sticky-top flex-md-nowrap p-0 shadow mx-auto rounded-4 mt-3 px-5">
+      <h4 className="my-3">
+        <span className="text-white ">Chat</span>
       </h4>
       <button
         className="navbar-toggler position-absolute d-md-none collapsed"
@@ -68,6 +68,6 @@ const Header = () =>{
       </div>
     </header>
   );
-}
+};
 
 export default Header;
