@@ -6,6 +6,8 @@ import {
   showSuccessMessage,
 } from "../utils/toaster";
 import { SIGNUP_EndPoint } from "../services/api_endPoints";
+import logo from "../assets/images/logo.svg";
+import setHeaders from "../utils/setHeaders";
 
 const SignupPage = () => {
   let navigate = useNavigate();
@@ -13,20 +15,19 @@ const SignupPage = () => {
     name: "",
     email: "",
     password: "",
-    rePassword: "",
+    // rePassword: "",
   });
 
   const isValid = () => {
     if (
       !userInfo.email ||
       !userInfo.name ||
-      !userInfo.email ||
-      !userInfo.password ||
-      !userInfo.rePassword
+      !userInfo.password 
+      // ||!userInfo.rePassword
     )
       return "All input must entered";
-    if (userInfo.password !== userInfo.rePassword)
-      return "password and confirm must be some";
+    // if (userInfo.password !== userInfo.rePassword)
+    //   return "password and confirm must be some";
   };
   const formHandler = (e) => {
     e.preventDefault();
@@ -34,11 +35,13 @@ const SignupPage = () => {
     const error = isValid();
     if (error) return showErrorMessage(error);
 
-    const { rePassword, ...body } = userInfo;
+    // const { rePassword, ...body } = userInfo;
+    const {...body } = userInfo;
     console.log(body);
 
     fetch(SIGNUP_EndPoint, {
       method: "post",
+      headers: setHeaders(),
       body: JSON.stringify(body),
     })
       .then((res) => res.json())
@@ -56,8 +59,11 @@ const SignupPage = () => {
   return (
     <div className="container">
       <div className="row auth-row align-items-center justify-content-between">
-        <div className="col-11 col-lg-4">
+        <div className="col-11 col-lg-4 signup-section-1 ">
           <div className="wrapper">
+            <div className="logo">
+              <img src={logo} alt="" />
+            </div>
             <div className="text-center mt-4 name">
               SignUp<span className="text-warning ms-2">Form</span>
             </div>
@@ -72,7 +78,7 @@ const SignupPage = () => {
                   value={userInfo.name}
                   placeholder="Name"
                   onChange={(e) =>
-                    setUserInfo({ ...userInfo, firstName: e.target.value })
+                    setUserInfo({ ...userInfo, name: e.target.value })
                   }
                 />
               </div>
@@ -102,7 +108,7 @@ const SignupPage = () => {
                   }
                 />
               </div>
-              <div className="form-field d-flex align-items-center">
+              {/* <div className="form-field d-flex align-items-center">
                 <span className="fas fa-key"></span>
                 <input
                   type="password"
@@ -114,7 +120,7 @@ const SignupPage = () => {
                     setUserInfo({ ...userInfo, rePassword: e.target.value })
                   }
                 />
-              </div>
+              </div> */}
               <button className="btn mt-3" type="submit">
                 Signup
               </button>
@@ -124,12 +130,17 @@ const SignupPage = () => {
             </div>
           </div>
         </div>
-        <div className="d-none d-lg-block col-lg-8">
-          <div className="bg-form bg-form-signup rounded rounded-4 overflow-hidden justify-content-center d-flex align-items-center ">
+        <div className="d-none d-lg-block col-lg-8 signup-section-2">
+          <div
+            className="bg-form rounded bg-form-signup
+           rounded-4 overflow-hidden justify-content-center d-flex align-items-end "
+          >
             <h1>
-              <div className="text-center name-website display-6 fw-bold">
-                <span className="text-white">Medical</span>
-                <span className="text-warning ms-2">ChatBot</span>
+              <div className="text-center name-website fw-bold label-img">
+                <p className="text-white h1">Medical ChatBot</p>
+                <p className="text-warning ms-2 h4 ">
+                  The Best Results, The Best Suggests
+                </p>
               </div>
             </h1>
           </div>

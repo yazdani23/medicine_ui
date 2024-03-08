@@ -7,6 +7,8 @@ import {
 } from "../utils/toaster";
 import axios from "axios";
 import { LOGIN_EndPoint } from "../services/api_endPoints";
+import logo from "../assets/images/logo.svg"
+import setHeaders from "../utils/setHeaders";
 
 
 
@@ -21,6 +23,7 @@ const LoginPage = ()=>{
     if (!userInfo.email || !userInfo.password) return;
     fetch(LOGIN_EndPoint, {
       method: "post",
+      headers: setHeaders(),
       body: JSON.stringify({
         email: userInfo.email,
         password: userInfo.password,
@@ -32,7 +35,7 @@ const LoginPage = ()=>{
           return showErrorMessage(data.message);
         }
         showSuccessMessage("Login successful!");
-        localStorage.setItem("token", data.token);
+        localStorage.setItem("token", data);
         console.log(data.token);
         localStorage.setItem("userInfo", JSON.stringify(data.userInfo));
         axios.defaults.headers.common = {
@@ -46,23 +49,28 @@ const LoginPage = ()=>{
   };
 
   return (
-    <div className="container">
+    <div className="container ">
       <div className="row auth-row  align-items-center justify-content-between">
-        <div className="d-none d-lg-block col-lg-8">
+        <div className="d-none d-lg-block col-lg-8 section-1">
           <div
             className="bg-form rounded 
-           rounded-4 overflow-hidden justify-content-center d-flex align-items-center "
+           rounded-4 overflow-hidden justify-content-center d-flex align-items-end "
           >
             <h1>
-              <div className="text-center name-website display-6 fw-bold">
-                <span className="text-white">Medical</span>
-                <span className="text-warning ms-2">ChatBot</span>
+              <div className="text-center name-website fw-bold label-img">
+                <p className="text-white h1">Medical ChatBot</p>
+                <p className="text-warning ms-2 h4 ">
+                  The Best Results, The Best Suggests
+                </p>
               </div>
             </h1>
           </div>
         </div>
-        <div className="col-11 col-lg-4">
+        <div className="col-11 col-lg-4 section-2">
           <div className="wrapper">
+            <div className="logo">
+              <img src={logo} alt="" />
+            </div>
             <div className="text-center mt-4 name">
               Login<span className="text-warning ms-2">Form</span>
             </div>
